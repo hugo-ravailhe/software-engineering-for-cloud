@@ -1,0 +1,52 @@
+.Connexion {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.Connexion-logo {
+  height: 40vmin;
+  pointer-events: none;
+  margin-bottom: 20px;
+}
+
+.Connexion-button {
+  background-color: #61dafb;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.Connexion > div {
+  margin-bottom: 15px;
+}
+
+.Connexion label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Connexion input {
+  width: 300px;
+  padding: 5px;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container button {
+  margin-left: 10px;
+}

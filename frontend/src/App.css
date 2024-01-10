@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  margin-bottom: 20px; /* Ajoutez une marge en bas pour séparer le logo des boutons */
+}
+
+.App-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px); /* Ajustez la hauteur pour tenir compte de l'espace occupé par le logo et les boutons */
+}
+
+.App-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.App-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #61dafb; /* Couleur de fond du bouton */
+  color: white; /* Couleur du texte du bouton */
+  border: none;
+  cursor: pointer;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+

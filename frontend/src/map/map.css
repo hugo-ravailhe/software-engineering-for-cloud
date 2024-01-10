@@ -1,0 +1,9 @@
+#map {
+    height: 400px;
+  }
+  
+  /* Styles pour la popup */
+  .leaflet-popup-content {
+    font-weight: bold;
+  }
+  
