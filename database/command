@@ -1,3 +1,3 @@
 docker compose up -d
 docker compose down
-docker exec -it heal-e-database mysql -u root -p heal_e_database
+docker exec -it database_heale mysql -u root -p heal_e_database

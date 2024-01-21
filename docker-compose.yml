@@ -1,0 +1,50 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend_heale
+    image: ravailhe/frontendcloud
+    ports:
+      - "3000:3000"  # Si votre application React Native écoute sur le port 3001
+    volumes:
+      - ./frontend:/app  # Montez le dossier du frontend dans le conteneur
+    env_file:
+      - ./.env
+    command: npm start  # Commande pour lancer le frontend
+    networks:
+      - heal_network 
+
+  backend:
+    container_name: backend_heale
+    image: ravailhe/backendcloud
+    depends_on:
+      - mysql
+    ports:
+      - "3001:3001"  # Si votre serveur Node.js écoute sur le port 3000
+    volumes:
+      - ./backend:/app  # Montez le dossier du backend dans le conteneur
+    env_file:
+      - ./.env
+    command: npm start  # Commande pour lancer le backend
+    networks:
+      - heal_network
+
+  mysql:
+    container_name: database_heale
+    image: ravailhe/mysqlcloud
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: heal_e_database
+    ports:
+      - "3306:3306"  # Port par défaut MySQL
+    volumes:
+      - ./database/mysql-data:/var/lib/mysql
+      - ./database/heal_e_database_creation.sql:/docker-entrypoint-initdb.d/script.sql
+    env_file:
+      - ./.env
+    networks:
+      - heal_network 
+
+
+networks:
+  heal_network:
+    driver: bridge
