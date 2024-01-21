@@ -16,8 +16,3 @@ app.get('/Connexion', (req, res) => {
 app.get('/Inscription', (req, res) => {
   res.send('Page d\'inscription');
 });
-
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Serveur démarré sur le port ${port}`);
-});
