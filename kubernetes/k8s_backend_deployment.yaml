@@ -1,10 +1,9 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-heale-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend-heale
@@ -18,6 +17,20 @@ spec:
         image: ravailhe/backendcloud
         ports:
         - containerPort: 3001
-        envFrom:
-        - configMapRef:
-            name: backend-config
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        - name: MYSQL_DATABASE
+          value: "heal_e_database"
+        - name: MYSQL_USER
+          value: "heal_e_user"
+        - name: MYSQL_PASSWORD
+          value: "user"
+        - name: BACKEND_HOST
+          value: "localhost"
+        - name: BACKEND_PORT
+          value: "3001"
+        - name: FRONTEND_HOST
+          value: "localhost"
+        - name: FRONTEND_PORT
+          value: "3000"

@@ -1,20 +1,19 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-heale-deployment
+  name: database-heale-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql-heale
+      app: database-heale
   template:
     metadata:
       labels:
-        app: mysql-heale
+        app: database-heale
     spec:
       containers:
-      - name: mysql-heale
+      - name: database-heale
         image: ravailhe/mysqlcloud
         ports:
         - containerPort: 3306
@@ -23,10 +22,15 @@ spec:
           value: "root"
         - name: MYSQL_DATABASE
           value: "heal_e_database"
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /var/lib/mysql
-      volumes:
-      - name: mysql-storage
-        persistentVolumeClaim:
-          claimName: mysql-pvc
+        - name: MYSQL_USER
+          value: "heal_e_user"
+        - name: MYSQL_PASSWORD
+          value: "user"
+        - name: BACKEND_HOST
+          value: "backend_heale"
+        - name: BACKEND_PORT
+          value: "3001"
+        - name: FRONTEND_HOST
+          value: "frontend_heale"
+        - name: FRONTEND_PORT
+          value: "3000"

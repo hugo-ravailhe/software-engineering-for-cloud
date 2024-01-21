@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: heale-ingress
+spec:
+  rules:
+  - host: backend.localhost
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-heale-service
+            port:
+              number: 3001
+  - host: frontend.localhost
+    http:
+      paths:
+      - path: /heale
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-heale-service
+            port:
+              number: 3000
