@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-heale-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-heale
+  template:
+    metadata:
+      labels:
+        app: frontend-heale
+    spec:
+      containers:
+      - name: frontend-heale
+        image: ravailhe/frontendcloud
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: frontend-config

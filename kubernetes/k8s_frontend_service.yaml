@@ -1,0 +1,13 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-heale-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend-heale
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

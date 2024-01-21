@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-heale-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-heale
+  template:
+    metadata:
+      labels:
+        app: backend-heale
+    spec:
+      containers:
+      - name: backend-heale
+        image: ravailhe/backendcloud
+        ports:
+        - containerPort: 3001
+        envFrom:
+        - configMapRef:
+            name: backend-config
